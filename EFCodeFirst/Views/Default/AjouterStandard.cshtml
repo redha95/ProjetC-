@@ -1,0 +1,34 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    ViewBag.Title = "AjouterStandard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NewRecord</h2>
+<h6>@Html.ActionLink("Go Back", "Index", "Default")</h6>
+@using (@Html.BeginForm("InsertStandard", "Default", FormMethod.Post))
+{
+    <table>
+
+       
+        <tr>
+            <td>@Html.Label("Nom du niveau")</td>
+            <td>:</td>
+            <td>@Html.TextBox("Niveau")</td>
+        </tr>
+        
+
+
+        <tr>
+        <tr>
+            <td>@Html.Label("Envoyer les informations")</td>
+            <td>:</td>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Rénitialiser")</td>
+            <td>:</td>
+            <td><input type="reset" value="Reset" /></td>
+        </tr>
+    </table>
+}

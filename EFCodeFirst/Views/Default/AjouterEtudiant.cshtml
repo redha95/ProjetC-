@@ -1,0 +1,61 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    ViewBag.Title = "AjouterEtudiant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NewRecord</h2>
+<h6>@Html.ActionLink("Go Back", "Index", "Default")</h6>
+@using (@Html.BeginForm("Insert", "Default", FormMethod.Post))
+{
+
+    <table>
+        <tr>
+            <td>@Html.Label("Nom de l'etudiant")</td>
+            <td>:</td>
+            <td>@Html.TextBox("TxtName")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Date de naissance")</td>
+            <td>:</td>
+            <td>@Html.TextBox("DateDeNaissance")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Taille (cm)")</td>
+            <td>:</td>
+            <td>@Html.TextBox("Taille")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Poids (kg)")</td>
+            <td>:</td>
+            <td>@Html.TextBox("Poids")</td>
+        </tr>
+
+    </table>
+
+       
+            <td><label for="idselect">Choissiez un niveau d'étude</label></td>
+  
+ 
+        <select name="StandardID" id="idselect">
+            <option value="0" selected="selected">(Choisissez)</option>
+            <option value="1">Première</option>
+            <option value="2">Seconde</option>
+            <option value="3">Terminale</option>
+
+        </select>
+        <br />
+            
+
+            <table>
+                <tr>
+                    <td>@Html.Label("Envoyer les informations")</td>
+                    <td>:</td>
+                    <td><input type="submit" value="Submit" /></td>
+
+                    <td>@Html.Label("Rénitialiser")</td>
+                    <td>:</td>
+                    <td><input type="reset" value="Reset" /></td>
+                </tr>
+            </table>
+}  
