@@ -136,6 +136,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\presentation.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -200,8 +201,9 @@
     <Content Include="Views\Default\AjouterEtudiant.cshtml" />
     <Content Include="Views\Default\Insert.cshtml" />
     <Content Include="Views\Default\InsertStandard.cshtml" />
-    <Content Include="Views\Default\DeleteEtudiant.cshtml" />
     <Content Include="Views\Default\SupprimerEtudiant.cshtml" />
+    <Content Include="Views\Default\ListEtudiant.cshtml" />
+    <Content Include="Views\Default\DeleteEtudiant.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

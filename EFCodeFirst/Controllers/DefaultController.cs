@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,15 +13,15 @@ namespace EFCodeFirst.Controllers
 {
     public class DefaultController : Controller
     {
+        private SchoolContext context = new SchoolContext();
+
 
         public ActionResult Index()
         {
-
-           
-
             return View();
-
         }
+        
+      
         public ActionResult AjouterEtudiant()
         {
             return View();
@@ -35,13 +36,20 @@ namespace EFCodeFirst.Controllers
         {
             return View();
         }
+
+        public ActionResult ListEtudiant()
+        {
+         
+            return View(context.Students.ToList());
+        }
+
+    
+
+
+
         public ActionResult InsertStandard(FormCollection Fc)
         {
-
-
-            using (SchoolContext context = new SchoolContext())
-            {
-
+            
                 Standard stand = new Standard();
                 stand.StandardName = Fc["Niveau"].ToString();
 
@@ -52,7 +60,7 @@ namespace EFCodeFirst.Controllers
                 {
                     ViewBag.Msg = "Les données ont été insérée avec succès.";
                 }
-            }
+            
             return View();
         }
 
@@ -60,13 +68,12 @@ namespace EFCodeFirst.Controllers
 
         public ActionResult Modifier()
         {
-            using (var context = new SchoolContext()) // MODIFIER 
-            {
+           
                 Student stud = new Student() { StudentID = 1280, StudentName = "Admin", DateOfBirth = DateTime.Now };
                 context.Students.Add(stud);
                 context.Entry(stud).State = EntityState.Modified;
                 context.SaveChanges();
-            }
+           
 
 
             return View();
@@ -74,17 +81,12 @@ namespace EFCodeFirst.Controllers
 
         public ActionResult Supprimer()
         {
-
-            using (var context = new SchoolContext()) // SUPPRIMER TOUT LES ETUDIANTS
-            {
-
-                //var stud = context.Students.Find(5); // ici on veut supp l'id 4
+            
                 var students = context.Students.ToList();
                 context.Students.RemoveRange(students);
-
-                //context.Students.Remove(stud);
+            
                 context.SaveChanges();
-            }
+            
             return View();
         }
 
@@ -92,8 +94,7 @@ namespace EFCodeFirst.Controllers
 
         public ActionResult Insert(FormCollection Fc, HttpPostedFileBase file)
         {
-            using (SchoolContext context = new SchoolContext())
-            {
+         
                 Student stud = new Student();
 
 
@@ -115,7 +116,7 @@ namespace EFCodeFirst.Controllers
                 {
                     ViewBag.Msg = "Les données ont été insérée avec succès.";
                 }
-            }
+            
 
             return View();
         }
@@ -135,21 +136,34 @@ namespace EFCodeFirst.Controllers
 
         private bool RemoveById(int Id)
         {
-            using (SchoolContext ctx = new SchoolContext())
-            {
-                var student = ctx.Students.Find(Id);
+             var student = context.Students.Find(Id);
                 if (student != null)
                 {
-                    ctx.Students.Remove(student);
-                    ctx.SaveChanges();
+                    context.Students.Remove(student);
+                    context.SaveChanges();
                     return true;
                 }
                     
-            }
+           
             return false;
 
         }
 
+        public ActionResult Details(int? id)
+        {
+
+            if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Student student = context.Students.Find(id);
+                if (student == null)
+                {
+                    return HttpNotFound();
+                }
+         
+            return View();
+        }
 
     }
 }

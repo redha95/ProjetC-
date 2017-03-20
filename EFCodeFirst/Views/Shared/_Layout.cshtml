@@ -5,37 +5,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Views/Default/Index.cshtml")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Views/Default/Index.cshtml")" rel="stylesheet" type="Site.css" />
+    <link href="~/Content/presentation.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class="page">
 
-        <div id="header">
-            <div id="title">
-                <h1>School Application</h1>
+        <div class="header">
+            <div class="title">
+               School Application
             </div>
 
-          
+        </div>
 
-            <div id="menucontainer">
-
-                <ul id="menu">
-                    <li>@Html.ActionLink("Ajouter un niveau", "AjouterStandard", "Default")</li>
-                    <li>@Html.ActionLink("Supprimer tout les etudiants", "Supprimer", "Default")</li>
-                    <li>@Html.ActionLink("Modifier", "Modifier", "Default")</li>
-                    <li>@Html.ActionLink("Ajouter un etudiant","AjouterEtudiant","Default")</li>
-                    <li>@Html.ActionLink("Supprimer un etudiant","SupprimerEtudiant","Default")</li>
-
-                </ul>
-
+            <div class="menucontainer">
+                <center>
+                    <ul class="menu">
+                        <li>@Html.ActionLink("Ajouter un niveau", "AjouterStandard", "Default")</li>
+                        <li>@Html.ActionLink("Supprimer tout les etudiants", "Supprimer", "Default")</li>
+                        <li>@Html.ActionLink("Modifier", "Index", "Default")</li>
+                        <li>@Html.ActionLink("Ajouter un etudiant", "AjouterEtudiant", "Default")</li>
+                        <li>@Html.ActionLink("Supprimer un etudiant", "SupprimerEtudiant", "Default")</li>
+                        <li>@Html.ActionLink("Afficher la liste des etudiants", "ListEtudiant", "Default")</li>
+                    </ul>
+                </center>
+            </div>
+        
+        <div class="main">
+            
+            @RenderBody() 
+           
+            <div class="footer">
+                <p class="txtfooter">&copy; @DateTime.Now.Year - Redha Aissaoui</p>
             </div>
         </div>
-        <div id="main">
-            @RenderBody()
-            <div id="footer">
-            </div>
-        </div>
+            
+        
+        
     </div>
+   
 </body>
 </html>

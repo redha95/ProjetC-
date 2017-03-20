@@ -4,7 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-   Vous avez supprimer tout les etudiant</a>.
-</p>
+<center>
+    <div class="pagetitle">
+        <br />
+        Confirmation
+    </div><br />
+    <div class="retour">
+
+        <a>@Html.ActionLink("Retour a l'accueil", "Index", "Default")</a>
+
+    </div>
+
+    <h6>Vous avez supprimer tout les étudiants</h6>
+</center>

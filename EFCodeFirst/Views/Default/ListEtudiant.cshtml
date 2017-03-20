@@ -1,0 +1,70 @@
+﻿@model IEnumerable<EFCodeFirst.Models.Student>
+
+@{
+    ViewBag.Title = "ListEtudiant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<center>
+    <div class="pagetitle">
+        <br />
+        Voici la liste des étudiants :
+    </div><br />
+    <div class="retour">
+        @Html.ActionLink("Retour a l'accueil", "Index", "Default")
+    </div>
+</center>
+<br />
+
+
+<center>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Standard)
+            </th>
+            
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Standard)
+                </td>
+            </tr>
+        }
+
+    </table>
+</center>

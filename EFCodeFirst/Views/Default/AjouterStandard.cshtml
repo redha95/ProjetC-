@@ -4,31 +4,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>NewRecord</h2>
-<h6>@Html.ActionLink("Go Back", "Index", "Default")</h6>
+<center>
+    <div class="pagetitle">
+        <br />
+        Enregistrez un nouveau niveau scolaire :
+    </div><br />
+    <div class="retour">
+        @Html.ActionLink("Retour a l'accueil", "Index", "Default")
+    </div>
+</center>
+
+<br />
+<link href="~/Content/presentation.css" rel="stylesheet" type="text/css" />
+
 @using (@Html.BeginForm("InsertStandard", "Default", FormMethod.Post))
 {
-    <table>
 
-       
-        <tr>
-            <td>@Html.Label("Nom du niveau")</td>
-            <td>:</td>
-            <td>@Html.TextBox("Niveau")</td>
-        </tr>
-        
+    <center>
+        <table>
 
 
-        <tr>
-        <tr>
-            <td>@Html.Label("Envoyer les informations")</td>
-            <td>:</td>
-            <td><input type="submit" value="Submit" /></td>
-        </tr>
-        <tr>
-            <td>@Html.Label("Rénitialiser")</td>
-            <td>:</td>
-            <td><input type="reset" value="Reset" /></td>
-        </tr>
-    </table>
+            <tr>
+                <td>@Html.Label("Nom du niveau")</td>
+                <td>:</td>
+                <td>@Html.TextBox("Niveau")</td>
+            </tr>
+
+        </table>
+    </center>
+
+    <center>
+
+        <table>
+            <tr>
+                <td>@Html.Label("")</td>
+                <td></td>
+                <td><br /><input class="boutons" type="submit" value="Valider" /></td>
+
+                <td>@Html.Label("")</td>
+                <td></td>
+                <td><br /><input class="boutons" type="reset" value="Rénitialiser" /></td>
+            </tr>
+        </table>
+
+    </center>
+
+
 }

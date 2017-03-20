@@ -1,13 +1,23 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 @{
-    ViewBag.Title = "AjouterStandard";
+    ViewBag.Title = "SupprimerEtudiant";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>NewRecord</h2>
-<h6>@Html.ActionLink("Go Back", "Index", "Default")</h6>
+<center>
+    <div class="pagetitle">
+        <br />
+        Supprimez un étudiant :
+    </div><br />
+    <div class="retour">
+        @Html.ActionLink("Retour a l'accueil", "Index", "Default")
+    </div>
+</center>
+<br />
+
 @using (@Html.BeginForm("DeleteEtudiant", "Default", FormMethod.Post))
 {
+    <center>
     <table>
 
 
@@ -17,18 +27,23 @@
             <td>@Html.TextBox("EtudiantID")</td>
         </tr>
 
-
-
-        <tr>
-        <tr>
-            <td>@Html.Label("Envoyer les informations")</td>
-            <td>:</td>
-            <td><input type="submit" value="Submit" /></td>
-        </tr>
-        <tr>
-            <td>@Html.Label("Rénitialiser")</td>
-            <td>:</td>
-            <td><input type="reset" value="Reset" /></td>
-        </tr>
     </table>
+    </center>
+
+
+    <center>
+
+        <table>
+            <tr>
+                <td>@Html.Label("")</td>
+                <td></td>
+                <td><br /><input class="boutons" type="submit" value="Valider" /></td>
+
+                <td>@Html.Label("")</td>
+                <td></td>
+                <td><br /><input class="boutons" type="reset" value="Rénitialiser" /></td>
+            </tr>
+        </table>
+
+    </center>
 }
